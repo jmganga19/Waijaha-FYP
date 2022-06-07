@@ -41,19 +41,19 @@
 						</div>
 					</div>
 					
-					<!-- <div class="col-md-3">
+					<div class="col-md-3">
 						<div class="panel panel-info">
 							<div class="panel-heading">
-								<h3 class="panel-title"> <a href="addstaff.php">
+								<h3 class="panel-title"> <a href="addcase.php">
 									<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
   
-								Add Staff</a>
+								Add Case</a>
 								
 								</h3>
 							</div>
 							
 						</div>
-					</div> -->
+					</div>
 					<!-- <div class="col-md-3">
 						<div class="panel panel-info">
 							<div class="panel-heading">

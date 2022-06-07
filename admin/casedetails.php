@@ -23,24 +23,12 @@
 	<div class="col-md-2"></div>
 	<div class="col-md-8">
 		<a href="#" onClick="window_print()" class="btn btn-info" style="margin-bottom:20px"><i class="icon-print icon-large"></i> Print</a>
-
-		<a href="investigation.php<?php echo '?edit='.$get_id; ?>"  class="btn btn-info" style="margin-bottom:20px"><i class="icon-print icon-large"></i> Investigation Statement</a>
-
-		<a href="assigncase.php<?php echo '?caseid='.$get_id; ?>"  class="btn btn-info" style="margin-bottom:20px"><i class="icon-print icon-large"></i> <?php if($status=='' or $status=='Not Yet' ){echo 'Assign This Case to CID Officer';} else{echo 'Change CID Officer';}?></a>
 		</script>
 		<div class="panel panel-success" id="outprint">
 			<div class="panel panel-success">
 			 	<div class="panel-heading">
-			 		<h3 class="panel-title">Case Details</h3>
-			 	</div>
-			<div class="panel-body">
-			 <br />
-			
-			 <div class="panel panel-success">
-			 	<div class="panel-heading">
-			 		
-			 		<h3 class="panel-title"> <span class="glyphicon glyphicon-user" aria-hidden="true"></span> Complainant Details</h3>
-			 	</div>
+			 		<h3 class="panel-title">Record Managements</h3>
+			 
 			 	<div class="panel-body">
 			 		<?php
 			 		$query=mysqli_query($dbcon,"select * from complainant where case_id='$get_id'");
@@ -67,6 +55,11 @@
 			 		<table id="myTable-party" class="table table-bordered table-hover" cellspacing="0" width="100%">
 							<thead>
 							    <tr>
+								<th>
+							        	<center>
+							       			Car Plate No
+							        	</center> 
+							        </th>
 							    	<th>
 							        	<center>
 							       			Crime Type
@@ -74,7 +67,7 @@
 							        </th>
 							        <th>
 							        	<center>
-							       			Case History
+							       			Location
 							        	</center> 
 							        </th>
 							        <th>
@@ -92,14 +85,17 @@
 						    <tbody>
 						    	<?php
 						    	$sn=0;
-			 		$query=mysqli_query($dbcon,"select * from case_table where case_id='$get_id'");
+			 		$query=mysqli_query($dbcon,"select * from caseDetail where caseid='$get_id'");
 		while($row = mysqli_fetch_array($query)){
 			$sn++;
 			?>
-						    	<tr><td><?php echo $row['case_type']?></td>
-						    		<td><?php echo $row['diaryofaction']?></td>
+						    	<tr>
+								    <td><?php echo $row['plate_no']?></td>
+									<td><?php echo $row['crime_type']?></td>
+						    		<td><?php echo $row['location']?></td>
 						    		<td><?php echo $row['date_added']?></td>
-						    		<td><?php echo $row['status']?></td>
+									<td><?php echo $row['status']?></td>
+						    	
 						    		
 						    	</tr>
 <?php }

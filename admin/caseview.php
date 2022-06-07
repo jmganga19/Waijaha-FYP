@@ -37,22 +37,22 @@ include('header.php');
     	<?php
 		// The serial number variable
 		$sn=0;
-		$query=mysqli_query($dbcon,"select * from case_table");
+		$query=mysqli_query($dbcon,"select * from caseDetail");
 		while($row = mysqli_fetch_array($query)){
-		$id = $row['case_id'];
-		$status=$row['status'];
+		$id = $row['caseid'];
 		$sn++;
 		?>
 		<tr>
        
         <td><?php echo $sn;?></td>
        
-        <td><?php echo $row['case_id'];?></td> 
-		<td><?php echo $row['case_type'];?></td>
+        <!-- <td><?php echo $row['caseid'];?></td>  -->
+		<td><?php echo $row['plate_no'];?></td>
+		<td><?php echo $row['crime_type'];?></td>
 		<td><?php echo $row['date_added']; ?></td> 
 		
 		<td class="empty" width="">
-			<a data-placement="left" title="Click to view" id="view<?php echo $id;?>" href="casedetails.php<?php echo '?id='.$id; ?>&status=<?php echo $row['status'] ?>" class="btn btn-success">Details<i class="icon-pencil icon-large"></i></a>
+			<a data-placement="left" title="Click to view" id="view<?php echo $id;?>" href="casedetails.php<?php echo '?id='.$id; ?>" class="btn btn-success">Details<i class="icon-pencil icon-large"></i></a>
            
 		
 			
